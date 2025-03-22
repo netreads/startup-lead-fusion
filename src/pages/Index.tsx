@@ -1,3 +1,4 @@
+
 import React from "react";
 import CountdownTimer from "../components/CountdownTimer";
 import BenefitCard from "../components/BenefitCard";
@@ -6,10 +7,12 @@ import FAQItem from "../components/FAQItem";
 import BonusCard from "../components/BonusCard";
 import AudienceCard from "../components/AudienceCard";
 import CTAButton from "../components/CTAButton";
+import ROICalculator from "../components/ROICalculator";
 import { 
   CheckCircle, Clock, Mail, Users, TrendingUp, BadgeDollarSign, 
   BarChart, Shield, Target, Zap, CheckCheck, Database,
-  UserCheck, Building, Briefcase, Lightbulb
+  UserCheck, Building, Briefcase, Lightbulb, Calculator,
+  DollarSign, Headphones, ArrowRight
 } from "lucide-react";
 
 const Index = () => {
@@ -58,6 +61,7 @@ const Index = () => {
       title: "Marketing Agencies",
       description: "Connect with startups needing branding, website development, and digital marketing services at their formation stage.",
       roi: "Average ₹75,000 per client acquisition",
+      valueProposition: "Generate multiple high-value web design projects & retainer contracts with startups building their online presence from scratch.",
       delay: 100
     },
     {
@@ -65,6 +69,7 @@ const Index = () => {
       title: "B2B Software Companies",
       description: "Offer your SaaS solutions to startups building their tech stack from scratch, without competing against established relationships.",
       roi: "Lifetime value of ₹240,000+ per client",
+      valueProposition: "Secure long-term recurring revenue through SaaS subscriptions as startups adopt your solution into their core workflow.",
       delay: 200
     },
     {
@@ -72,6 +77,7 @@ const Index = () => {
       title: "Financial Services",
       description: "Provide banking, accounting, and funding options to startups with immediate financial needs and fresh capital.",
       roi: "₹120,000+ in service fees per client",
+      valueProposition: "Establish yourself as the trusted financial partner from day one, creating relationships that grow with each business success.",
       delay: 300
     },
     {
@@ -79,6 +85,7 @@ const Index = () => {
       title: "Business Consultants",
       description: "Deliver expertise to founders navigating the challenging early stages of business development and growth planning.",
       roi: "Consulting packages worth ₹50,000-₹200,000",
+      valueProposition: "Position yourself as an essential advisor during the critical formation period, creating loyal clients who value your guidance.",
       delay: 400
     }
   ];
@@ -176,43 +183,69 @@ const Index = () => {
     <div className="bg-gradient-to-b from-white to-brand-light">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center py-16 px-4 md:px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center opacity-5"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/5 to-transparent z-0"></div>
         <div className="container max-w-7xl mx-auto z-10">
-          <div className="text-center mb-6">
-            <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm animate-in animate-delay-100">
-              EXCLUSIVE LIMITED-TIME OFFER
+          <div className="flex flex-col md:flex-row items-center mb-12">
+            <div className="md:w-3/5 text-left mb-8 md:mb-0 md:pr-12">
+              <div className="mb-4 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm animate-in animate-delay-100">
+                EXCLUSIVE LIMITED-TIME OFFER
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-4 leading-tight animate-in animate-delay-100">
+                1,000 Freshly Registered <br className="hidden md:block" />
+                Startup Emails for <span className="text-brand-orange">ONLY ₹3,000</span>
+              </h1>
+              <h2 className="text-xl md:text-2xl text-gray-600 max-w-3xl animate-in animate-delay-200">
+                Connect directly with decision-makers who <span className="font-semibold">NEED</span> your services now | 100% verified contacts | Instant delivery
+              </h2>
+              
+              <div className="flex flex-wrap items-center mt-8 gap-3 animate-in animate-delay-300">
+                <div className="flex items-center text-sm text-brand-navy bg-white py-1 px-3 rounded-full shadow-sm">
+                  <CheckCircle className="h-4 w-4 text-brand-blue mr-1" />
+                  <span>100% Verified</span>
+                </div>
+                <div className="flex items-center text-sm text-brand-navy bg-white py-1 px-3 rounded-full shadow-sm">
+                  <Headphones className="h-4 w-4 text-brand-blue mr-1" />
+                  <span>24/7 Support</span>
+                </div>
+                <div className="flex items-center text-sm text-brand-navy bg-white py-1 px-3 rounded-full shadow-sm">
+                  <DollarSign className="h-4 w-4 text-brand-blue mr-1" />
+                  <span>Money-back Guarantee</span>
+                </div>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-4 leading-tight animate-in animate-delay-100">
-              1,000 Freshly Registered <br className="hidden md:block" />
-              Startup Emails for <span className="text-brand-orange">ONLY ₹3,000</span>
-            </h1>
-            <h2 className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto animate-in animate-delay-200">
-              Connect directly with decision-makers who <span className="font-semibold">NEED</span> your services now | 100% verified contacts | Instant delivery
-            </h2>
-          </div>
-
-          <div className="mt-8 mb-12 animate-in animate-delay-300">
-            <div className="text-center mb-4">
-              <p className="text-brand-navy font-semibold">This Offer Expires In:</p>
+            
+            <div className="md:w-2/5 bg-white p-8 rounded-xl shadow-lg border border-brand-gray animate-in animate-delay-300">
+              <div className="text-center mb-4">
+                <h3 className="text-2xl font-bold text-brand-navy">Limited Time Offer</h3>
+                <div className="flex items-center justify-center gap-2 text-brand-orange font-semibold mt-2">
+                  <span className="text-3xl line-through opacity-70">₹6,000</span>
+                  <span className="bg-brand-orange/10 p-1 rounded text-sm">50% OFF</span>
+                  <span className="text-3xl">₹3,000</span>
+                </div>
+              </div>
+              
+              <div className="mb-6">
+                <div className="text-center mb-4">
+                  <p className="text-brand-navy font-semibold">This Offer Expires In:</p>
+                </div>
+                <CountdownTimer hours={24} />
+              </div>
+              
+              <CTAButton 
+                text="GET INSTANT ACCESS NOW" 
+                icon={<ArrowRight className="w-5 h-5" />}
+                onClick={handleBuyNow} 
+                className="w-full"
+              />
+              
+              <div className="mt-4 text-center text-sm text-gray-500">
+                <p>Secure payment • Instant delivery • 7-day guarantee</p>
+              </div>
             </div>
-            <CountdownTimer hours={24} />
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 animate-in animate-delay-400">
-            <CTAButton 
-              text="SECURE YOUR LEADS NOW" 
-              onClick={handleBuyNow} 
-              className="w-full md:w-auto"
-            />
-            <button 
-              onClick={() => scrollToSection('benefits')}
-              className="text-brand-blue underline font-medium hover:text-brand-navy transition-colors"
-            >
-              Learn More
-            </button>
-          </div>
-
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto animate-in animate-delay-500">
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto animate-in animate-delay-500">
             <div className="flex flex-col items-center">
               <div className="rounded-full bg-brand-navy/10 p-2 mb-2">
                 <Shield className="h-5 w-5 text-brand-navy" />
@@ -278,13 +311,48 @@ const Index = () => {
             <CTAButton 
               text="GET INSTANT ACCESS" 
               onClick={handleBuyNow} 
+              icon={<ArrowRight className="w-5 h-5" />}
             />
           </div>
         </div>
       </section>
 
+      {/* ROI Calculator Section */}
+      <section className="py-24 px-4 md:px-6 bg-brand-navy/5">
+        <div className="container max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="mb-2 inline-block bg-brand-orange/15 text-brand-orange font-semibold px-4 py-1 rounded-full text-sm">
+              CALCULATE YOUR RETURN
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
+              Calculate Your Potential ROI
+            </h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              See the potential return on your investment based on different conversion scenarios:
+            </p>
+          </div>
+
+          <ROICalculator />
+
+          <div className="mt-12 p-6 bg-white rounded-xl border border-brand-gray/80 shadow-sm max-w-3xl mx-auto">
+            <div className="flex items-start">
+              <div className="p-2 rounded-full bg-brand-orange/10 mr-4 mt-1">
+                <Lightbulb className="h-5 w-5 text-brand-orange" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-brand-navy mb-2">How We Calculate ROI</h3>
+                <p className="text-gray-600">
+                  ROI = (Net Profit / Cost of Investment) × 100. For example, in the Conservative Scenario, 
+                  the net profit is ₹40,000 - ₹3,000 = ₹37,000. The ROI is then (₹37,000 / ₹3,000) × 100 = 1,233%.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Who Can Benefit Section */}
-      <section id="audience" className="py-24 px-4 md:px-6 bg-brand-gray/30">
+      <section id="audience" className="py-24 px-4 md:px-6 bg-white">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm">
@@ -306,15 +374,33 @@ const Index = () => {
                 title={audience.title}
                 description={audience.description}
                 roi={audience.roi}
+                valueProposition={audience.valueProposition}
                 delay={audience.delay}
               />
             ))}
+          </div>
+          
+          <div className="mt-16 p-6 bg-brand-navy/5 rounded-xl border border-brand-gray">
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
+                <h3 className="text-xl font-bold text-brand-navy mb-3">Transform Your Client Acquisition Strategy</h3>
+                <p className="text-gray-600">No matter your industry, freshly registered startups represent the most responsive and high-converting prospect pool available. These businesses are actively looking for service providers right now.</p>
+              </div>
+              <div className="md:w-1/3">
+                <CTAButton 
+                  text="GET STARTED TODAY" 
+                  onClick={handleBuyNow} 
+                  className="w-full"
+                  icon={<ArrowRight className="w-5 h-5" />}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* What You'll Receive Section */}
-      <section className="py-24 px-4 md:px-6">
+      <section className="py-24 px-4 md:px-6 bg-gradient-to-br from-brand-light to-white">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm">
@@ -384,6 +470,7 @@ const Index = () => {
             <CTAButton 
               text="START GENERATING CLIENTS TODAY" 
               onClick={handleBuyNow} 
+              icon={<ArrowRight className="w-5 h-5" />}
             />
           </div>
         </div>
@@ -417,12 +504,17 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="mt-16 p-8 bg-brand-navy rounded-xl text-center text-white">
-            <h3 className="text-2xl font-bold mb-6">Achieve Similar Results For Your Business</h3>
-            <CTAButton 
-              text="GET YOUR LEADS NOW" 
-              onClick={handleBuyNow} 
-            />
+          <div className="mt-16 p-8 bg-brand-navy/95 rounded-xl text-center text-white glass-effect relative overflow-hidden">
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center opacity-10"></div>
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold mb-6">Achieve Similar Results For Your Business</h3>
+              <CTAButton 
+                text="GET YOUR LEADS NOW" 
+                onClick={handleBuyNow} 
+                className="bg-brand-orange border-brand-orange hover:bg-white hover:text-brand-orange"
+                icon={<ArrowRight className="w-5 h-5" />}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -443,7 +535,7 @@ const Index = () => {
           </div>
 
           <div className="bg-white rounded-xl shadow-lg border border-brand-gray overflow-hidden max-w-3xl mx-auto animate-in">
-            <div className="bg-brand-navy text-white p-6 text-center">
+            <div className="bg-gradient-to-r from-brand-navy to-brand-blue text-white p-6 text-center">
               <h3 className="text-2xl font-bold">Premium Startup Email Database</h3>
               <p className="text-lg opacity-90">1,000 Verified Decision-Maker Contacts</p>
             </div>
@@ -489,6 +581,7 @@ const Index = () => {
                   text="BUY NOW - LIMITED AVAILABILITY" 
                   onClick={handleBuyNow} 
                   className="w-full"
+                  icon={<ArrowRight className="w-5 h-5" />}
                 />
                 <p className="text-red-500 font-medium mt-4">Only 50 copies available at this price</p>
                 <p className="text-gray-500 text-sm mt-2">Price increases by ₹500 every 24 hours</p>
@@ -541,6 +634,7 @@ const Index = () => {
                   text="CLAIM THIS OFFER" 
                   onClick={handleBuyNow} 
                   className="whitespace-nowrap"
+                  icon={<ArrowRight className="w-5 h-5" />}
                 />
               </div>
             </div>
@@ -587,8 +681,9 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 px-4 md:px-6 bg-brand-navy text-white">
-        <div className="container max-w-7xl mx-auto text-center">
+      <section className="py-16 px-4 md:px-6 bg-brand-navy text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center opacity-10"></div>
+        <div className="container max-w-7xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Transform Your Lead Generation?
           </h2>
@@ -600,7 +695,8 @@ const Index = () => {
             <CTAButton 
               text="GET 1,000 STARTUP EMAILS NOW" 
               onClick={handleBuyNow} 
-              className="w-full mb-4"
+              className="w-full mb-4 bg-brand-orange border-brand-orange hover:bg-white hover:text-brand-orange"
+              icon={<ArrowRight className="w-5 h-5" />}
             />
             <p className="text-white/80 text-sm">
               Secure payment • Instant delivery • 7-day satisfaction guarantee

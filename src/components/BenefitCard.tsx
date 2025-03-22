@@ -12,10 +12,10 @@ type BenefitCardProps = {
 const BenefitCard: React.FC<BenefitCardProps> = ({ icon: Icon, title, description, delay }) => {
   return (
     <div 
-      className="flex flex-col items-start p-6 rounded-xl bg-white border border-brand-gray shadow-sm hover:shadow-md transition-all duration-300"
+      className="flex flex-col items-start p-6 rounded-xl bg-white border border-brand-gray shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-5px]"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="rounded-full bg-brand-blue/10 p-3 mb-4">
+      <div className="rounded-full bg-brand-blue/10 p-3 mb-4 flex items-center justify-center">
         <Icon className="h-6 w-6 text-brand-blue" />
       </div>
       <h3 className="text-xl font-semibold mb-2 text-brand-navy">{title}</h3>
