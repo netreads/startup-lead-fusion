@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CountdownTimer from "../components/CountdownTimer";
 import BenefitCard from "../components/BenefitCard";
 import TestimonialCard from "../components/TestimonialCard";
@@ -9,43 +8,11 @@ import AudienceCard from "../components/AudienceCard";
 import CTAButton from "../components/CTAButton";
 import { 
   CheckCircle, Clock, Mail, Users, TrendingUp, BadgeDollarSign, 
-  BarChart, Shield, Target, Zap, LucideIcon, CheckCheck, Database,
+  BarChart, Shield, Target, Zap, CheckCheck, Database,
   UserCheck, Building, Briefcase, Lightbulb
 } from "lucide-react";
 
 const Index = () => {
-  const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({
-    benefits: false,
-    audience: false,
-    testimonials: false,
-    pricing: false,
-    faq: false
-  });
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.target.id) {
-            setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach((section) => {
-        observer.unobserve(section);
-      });
-    };
-  }, []);
-
   const benefits = [
     {
       icon: Database,
@@ -212,7 +179,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/5 to-transparent z-0"></div>
         <div className="container max-w-7xl mx-auto z-10">
           <div className="text-center mb-6">
-            <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm">
+            <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm animate-in animate-delay-100">
               EXCLUSIVE LIMITED-TIME OFFER
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-4 leading-tight animate-in animate-delay-100">
@@ -295,11 +262,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div 
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${
-              isVisible.benefits ? "" : "opacity-0"
-            }`}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-in">
             {benefits.map((benefit, index) => (
               <BenefitCard
                 key={index}
@@ -335,11 +298,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div 
-            className={`grid grid-cols-1 md:grid-cols-2 gap-8 ${
-              isVisible.audience ? "" : "opacity-0"
-            }`}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-in">
             {audiences.map((audience, index) => (
               <AudienceCard
                 key={index}
@@ -445,11 +404,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div 
-            className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${
-              isVisible.testimonials ? "" : "opacity-0"
-            }`}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-in">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard
                 key={index}
@@ -487,11 +442,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div 
-            className={`bg-white rounded-xl shadow-lg border border-brand-gray overflow-hidden max-w-3xl mx-auto ${
-              isVisible.pricing ? "animate-in" : "opacity-0"
-            }`}
-          >
+          <div className="bg-white rounded-xl shadow-lg border border-brand-gray overflow-hidden max-w-3xl mx-auto animate-in">
             <div className="bg-brand-navy text-white p-6 text-center">
               <h3 className="text-2xl font-bold">Premium Startup Email Database</h3>
               <p className="text-lg opacity-90">1,000 Verified Decision-Maker Contacts</p>
@@ -612,11 +563,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div 
-            className={`max-w-3xl mx-auto ${
-              isVisible.faq ? "animate-in" : "opacity-0"
-            }`}
-          >
+          <div className="max-w-3xl mx-auto animate-in">
             {faqs.map((faq, index) => (
               <FAQItem
                 key={index}

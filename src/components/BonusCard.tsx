@@ -17,7 +17,10 @@ const BonusCard: React.FC<BonusCardProps> = ({
   delay 
 }) => {
   return (
-    <div className={`border border-brand-gray rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 animate-in animate-delay-${delay}`}>
+    <div 
+      className="border border-brand-gray rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
+      style={{ animationDelay: `${delay}ms` }}
+    >
       <div className="bg-brand-blue text-white p-3 font-bold text-center">
         BONUS #{number}
       </div>

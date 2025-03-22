@@ -12,7 +12,8 @@ type BenefitCardProps = {
 const BenefitCard: React.FC<BenefitCardProps> = ({ icon: Icon, title, description, delay }) => {
   return (
     <div 
-      className={`flex flex-col items-start p-6 rounded-xl bg-white border border-brand-gray shadow-sm hover:shadow-md transition-all duration-300 animate-in animate-delay-${delay}`}
+      className="flex flex-col items-start p-6 rounded-xl bg-white border border-brand-gray shadow-sm hover:shadow-md transition-all duration-300"
+      style={{ animationDelay: `${delay}ms` }}
     >
       <div className="rounded-full bg-brand-blue/10 p-3 mb-4">
         <Icon className="h-6 w-6 text-brand-blue" />
