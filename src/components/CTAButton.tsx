@@ -19,9 +19,9 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`px-8 py-4 rounded-lg font-bold transition-all transform duration-300 text-lg flex items-center justify-center gap-2 shadow-md hover:shadow-xl ${
+      className={`px-8 py-4 rounded-lg font-bold transition-all transform duration-300 text-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl ${
         isPrimary 
-          ? "bg-brand-orange text-white hover:scale-105" 
+          ? "bg-gradient-to-r from-brand-orange to-brand-orange/90 text-white hover:scale-105 hover:from-brand-orange/90 hover:to-brand-orange" 
           : "bg-white text-brand-navy border-2 border-brand-navy hover:bg-brand-navy hover:text-white"
       } ${className}`}
     >

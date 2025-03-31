@@ -1,22 +1,23 @@
-
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CountdownTimer from "../components/CountdownTimer";
 import BenefitCard from "../components/BenefitCard";
-import TestimonialCard from "../components/TestimonialCard";
 import FAQItem from "../components/FAQItem";
-import BonusCard from "../components/BonusCard";
 import AudienceCard from "../components/AudienceCard";
 import CTAButton from "../components/CTAButton";
 import ROICalculator from "../components/ROICalculator";
+import { useToast } from "@/components/ui/use-toast";
 import { 
   CheckCircle, Clock, Mail, Users, TrendingUp, BadgeDollarSign, 
   BarChart, Shield, Target, Zap, CheckCheck, Database,
   UserCheck, Building, Briefcase, Lightbulb, Calculator,
   DollarSign, Headphones, ArrowRight, MessageSquare,
-  Award, Star, ThumbsUp, Sparkles, Gift
+  Award, Star, ThumbsUp, Sparkles
 } from "lucide-react";
 
 const Index = () => {
+  const { toast } = useToast();
+  const [priceIncreased, setPriceIncreased] = useState(false);
+
   const benefits = [
     {
       icon: Database,
@@ -91,54 +92,6 @@ const Index = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-      name: "Rajesh Sharma",
-      position: "Marketing Agency Owner",
-      testimonial: "Within 2 weeks of using this database, we secured 3 new startup clients for our web design services. The ROI has been incredible—these leads converted 5x faster than our regular prospecting methods.",
-      delay: 100
-    },
-    {
-      image: "https://randomuser.me/api/portraits/women/44.jpg",
-      name: "Priya Mehta",
-      position: "SaaS Founder",
-      testimonial: "As a software provider, we struggle to identify new businesses before our competitors. This email list changed everything—we've already onboarded 6 new clients who needed our exact solution.",
-      delay: 200
-    },
-    {
-      image: "https://randomuser.me/api/portraits/men/67.jpg",
-      name: "Vikram Patel",
-      position: "Business Consultant",
-      testimonial: "The quality of these leads is outstanding. These startups are actively looking for guidance, making my outreach significantly more effective. I've converted 4 new consulting clients so far.",
-      delay: 300
-    }
-  ];
-
-  const bonuses = [
-    {
-      number: 1,
-      title: "100 FREE Sample Emails",
-      description: "Test the quality before full deployment and start generating leads immediately.",
-      value: "₹600",
-      delay: 100
-    },
-    {
-      number: 2,
-      title: "Premium Email Templates",
-      description: "Copy-and-paste templates proven to get 30%+ response rates from startup founders.",
-      value: "₹1,500",
-      delay: 200
-    },
-    {
-      number: 3,
-      title: "Video Training",
-      description: "Comprehensive guide on converting cold emails into paying clients with proven strategies.",
-      value: "₹3,500",
-      delay: 300
-    }
-  ];
-
   const faqs = [
     {
       question: "How fresh is this data?",
@@ -170,6 +123,15 @@ const Index = () => {
     }
   ];
 
+  const handleTimeUp = () => {
+    setPriceIncreased(true);
+    toast({
+      title: "Price Increased!",
+      description: "The price has gone up to ₹1,600. Act now before it increases again!",
+      variant: "destructive",
+    });
+  };
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -177,7 +139,10 @@ const Index = () => {
 
   const handleBuyNow = () => {
     // Implement the purchase flow here
-    alert("Thank you for your interest! This would connect to a payment processor in a real implementation.");
+    toast({
+      title: "Processing your order",
+      description: "Thank you for your interest! We're preparing your email database for delivery.",
+    });
   };
 
   return (
@@ -220,13 +185,13 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="md:w-2/5 bg-white p-8 rounded-xl shadow-lg border border-brand-gray animate-fade-in">
+            <div className="md:w-2/5 bg-gradient-to-br from-white to-brand-light p-8 rounded-xl shadow-lg border border-brand-gray animate-fade-in">
               <div className="text-center mb-4">
                 <h3 className="text-2xl font-bold text-brand-navy">Limited Time Offer</h3>
                 <div className="flex items-center justify-center gap-2 text-brand-orange font-semibold mt-2">
                   <span className="text-3xl line-through opacity-70">₹2,400</span>
                   <span className="bg-brand-orange/10 p-1 rounded text-sm">50% OFF</span>
-                  <span className="text-3xl">₹1,200</span>
+                  <span className="text-3xl">{priceIncreased ? "₹1,600" : "₹1,200"}</span>
                 </div>
               </div>
               
@@ -234,7 +199,7 @@ const Index = () => {
                 <div className="text-center mb-4">
                   <p className="text-brand-navy font-semibold">This Offer Expires In:</p>
                 </div>
-                <CountdownTimer hours={24} />
+                <CountdownTimer hours={24} onComplete={handleTimeUp} />
               </div>
               
               <CTAButton 
@@ -285,7 +250,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Proof WhatsApp Section */}
+      {/* Social Proof WhatsApp Section - Enhanced */}
       <section className="py-16 px-4 md:px-6 bg-gradient-to-r from-brand-light to-white">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -300,155 +265,175 @@ const Index = () => {
             </p>
           </div>
 
+          {/* Enhanced WhatsApp Cards - Increased Size */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-md border border-gray-200 max-w-xs mx-auto">
-              <div className="bg-[#128C7E] text-white p-2 rounded-t-lg flex items-center">
-                <div className="w-10 h-10 bg-white rounded-full overflow-hidden mr-3"></div>
+            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-lg border border-gray-200 max-w-sm mx-auto hover:shadow-xl transition-all duration-300">
+              <div className="bg-[#128C7E] text-white p-3 rounded-t-lg flex items-center">
+                <div className="w-12 h-12 bg-white rounded-full overflow-hidden mr-3 flex items-center justify-center text-sm font-bold text-[#128C7E]">
+                  RA
+                </div>
                 <div>
-                  <p className="font-medium">Rajesh Malhotra</p>
+                  <p className="font-medium">Raj** M******</p>
                   <p className="text-xs opacity-80">Online</p>
                 </div>
               </div>
-              <div className="py-3 px-2 bg-[#E5DDD5] h-80 overflow-y-auto rounded-b-lg">
+              <div className="py-4 px-3 bg-[#E5DDD5] h-96 overflow-y-auto rounded-b-lg">
                 <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
                     Hi
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:42 PM</span>
                   </span>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
                     Hello
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:43 PM</span>
                   </span>
                 </div>
                 <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
                     Did any leads work for you?
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:45 PM</span>
                   </span>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
                     Bro, this list actually works! Sent emails yesterday, got 2 replies already
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:47 PM</span>
                   </span>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
                     Both are founders. This was worth it.
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:48 PM</span>
                   </span>
                 </div>
                 <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
                     That's Great! Keep sending more emails to leads.
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:50 PM</span>
                   </span>
                 </div>
               </div>
             </div>
             
-            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-md border border-gray-200 max-w-xs mx-auto">
-              <div className="bg-[#128C7E] text-white p-2 rounded-t-lg flex items-center">
-                <div className="w-10 h-10 bg-white rounded-full overflow-hidden mr-3"></div>
+            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-lg border border-gray-200 max-w-sm mx-auto hover:shadow-xl transition-all duration-300">
+              <div className="bg-[#128C7E] text-white p-3 rounded-t-lg flex items-center">
+                <div className="w-12 h-12 bg-white rounded-full overflow-hidden mr-3 flex items-center justify-center text-sm font-bold text-[#128C7E]">
+                  +91
+                </div>
                 <div>
-                  <p className="font-medium">+91 98362 53332</p>
+                  <p className="font-medium">+91 983** ***32</p>
                   <p className="text-xs opacity-80">Online</p>
                 </div>
               </div>
-              <div className="py-3 px-2 bg-[#E5DDD5] h-80 overflow-y-auto rounded-b-lg">
+              <div className="py-4 px-3 bg-[#E5DDD5] h-96 overflow-y-auto rounded-b-lg">
                 <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
                     Hello Sir
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">10:15 AM</span>
                   </span>
                 </div>
                 <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
                     Hi, Did you get your email list?
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">10:17 AM</span>
                   </span>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
                     Yes, I got the email list instantly after Payment. Are these really verified?
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">10:20 AM</span>
                   </span>
                 </div>
                 <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
                     Yep, all fresh and verified
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">10:21 AM</span>
                   </span>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
                     Thankyou
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">10:22 AM</span>
                   </span>
                 </div>
               </div>
             </div>
             
-            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-md border border-gray-200 max-w-xs mx-auto">
-              <div className="bg-[#128C7E] text-white p-2 rounded-t-lg flex items-center">
-                <div className="w-10 h-10 bg-white rounded-full overflow-hidden mr-3"></div>
+            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-lg border border-gray-200 max-w-sm mx-auto hover:shadow-xl transition-all duration-300">
+              <div className="bg-[#128C7E] text-white p-3 rounded-t-lg flex items-center">
+                <div className="w-12 h-12 bg-white rounded-full overflow-hidden mr-3 flex items-center justify-center text-sm font-bold text-[#128C7E]">
+                  +91
+                </div>
                 <div>
-                  <p className="font-medium">+91 97423 70822</p>
+                  <p className="font-medium">+91 974** ***22</p>
                   <p className="text-xs opacity-80">Online</p>
                 </div>
               </div>
-              <div className="py-3 px-2 bg-[#E5DDD5] h-80 overflow-y-auto rounded-b-lg">
+              <div className="py-4 px-3 bg-[#E5DDD5] h-96 overflow-y-auto rounded-b-lg">
                 <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
                     Hi
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:22 PM</span>
                   </span>
                 </div>
                 <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
                     Hello
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:23 PM</span>
                   </span>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
                     Ji, ye leads freelancers ke liye bhi useful hai kya?
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:25 PM</span>
                   </span>
                 </div>
                 <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
                     Aapki niche kya hai?
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:26 PM</span>
                   </span>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
                     Website Development and Logo Design
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:28 PM</span>
                   </span>
                 </div>
                 <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
                     Sir, startup founders ko website and logo chahiye hote hai. Aapke liye toh perfect hai.
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:30 PM</span>
                   </span>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
                     ok, send me the link.
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:31 PM</span>
                   </span>
                 </div>
                 <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
                     www.netreads.in/fresh_business_leads
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:32 PM</span>
                   </span>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
                     Payment Done. Leads email pe milengi?
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:40 PM</span>
                   </span>
                 </div>
                 <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
                     Ji sir
+                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:41 PM</span>
                   </span>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="mt-12 text-center">
-            <CTAButton 
-              text="GET YOUR STARTUP LEADS NOW" 
-              onClick={handleBuyNow}
-              icon={<ArrowRight className="w-5 h-5" />}
-            />
           </div>
         </div>
       </section>
@@ -550,7 +535,6 @@ const Index = () => {
               text="CLAIM YOUR DATABASE" 
               onClick={handleBuyNow}
               className="md:whitespace-nowrap"
-              icon={<Gift className="w-5 h-5" />}
             />
           </div>
         </div>
@@ -571,422 +555,31 @@ const Index = () => {
             </p>
           </div>
 
-          <ROICalculator />
-
-          <div className="mt-12 p-6 bg-white rounded-xl border border-brand-gray/80 shadow-md max-w-3xl mx-auto">
-            <div className="flex items-start">
-              <div className="p-2 rounded-full bg-brand-orange/10 mr-4 mt-1">
-                <Lightbulb className="h-5 w-5 text-brand-orange" />
+          {/* Updated Fixed ROI Table */}
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {/* Conservative Scenario */}
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div className="bg-gradient-to-r from-brand-blue/90 to-brand-blue/70 text-white p-4">
+                <h3 className="text-xl font-bold text-center">Conservative Scenario</h3>
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-brand-navy mb-2">How We Calculate ROI</h3>
-                <p className="text-gray-600">
-                  ROI = (Net Profit / Cost of Investment) × 100. For example, in the Conservative Scenario, 
-                  the net profit is ₹40,000 - ₹1,200 = ₹38,800. The ROI is then (₹38,800 / ₹1,200) × 100 = 3,233%.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Who Can Benefit Section */}
-      <section id="audience" className="py-24 px-4 md:px-6 bg-brand-light">
-        <div className="container max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm">
-              IDEAL FOR
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
-              Who Can Benefit From This Database
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Our startup email database is specially curated for businesses providing essential services to new companies. See how various industries achieve exceptional ROI:
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {audiences.map((audience, index) => (
-              <AudienceCard
-                key={index}
-                icon={audience.icon}
-                title={audience.title}
-                description={audience.description}
-                roi={audience.roi}
-                valueProposition={audience.valueProposition}
-                delay={audience.delay}
-              />
-            ))}
-          </div>
-          
-          <div className="mt-16 p-6 bg-white rounded-xl border border-brand-gray shadow-md">
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-                <h3 className="text-xl font-bold text-brand-navy mb-3">Transform Your Client Acquisition Strategy</h3>
-                <p className="text-gray-600">No matter your industry, freshly registered startups represent the most responsive and high-converting prospect pool available. These businesses are actively looking for service providers right now.</p>
-              </div>
-              <div className="md:w-1/3">
-                <CTAButton 
-                  text="GET STARTED TODAY" 
-                  onClick={handleBuyNow} 
-                  className="w-full"
-                  icon={<ArrowRight className="w-5 h-5" />}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What You'll Receive Section */}
-      <section className="py-24 px-4 md:px-6 bg-gradient-to-br from-brand-light to-white">
-        <div className="container max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm">
-              INCLUDED
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
-              What You'll Receive
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              More than just emails—a complete toolkit for successful outreach:
-            </p>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-lg border border-brand-gray p-8 mb-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-bold text-brand-navy mb-4 flex items-center">
-                  <Mail className="mr-2 text-brand-blue" /> Email Database Contents
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                    <span>1,000+ verified email contacts of newly registered Indian startups (last 3 months)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                    <span>Direct contact information for founders and key decision-makers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                    <span>Company details including industry, location, and registration date</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                    <span>Organized CSV/Excel file for easy import into your CRM</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-bold text-brand-navy mb-4 flex items-center">
-                  <BarChart className="mr-2 text-brand-blue" /> Key Advantages
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                    <span>95%+ email deliverability rate (industry average is 75%)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                    <span>22% average email open rate (industry average is 15%)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                    <span>5.8% average response rate (industry average is 1%)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                    <span>Categorized by industry for targeted campaigns</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-center">
-            <CTAButton 
-              text="START GENERATING CLIENTS TODAY" 
-              onClick={handleBuyNow} 
-              icon={<ArrowRight className="w-5 h-5" />}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 px-4 md:px-6 bg-brand-gray/30">
-        <div className="container max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm">
-              SUCCESS STORIES
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
-              What Our Customers Are Saying
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Don't take our word for it—see the results our customers have achieved:
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={index}
-                image={testimonial.image}
-                name={testimonial.name}
-                position={testimonial.position}
-                testimonial={testimonial.testimonial}
-                delay={testimonial.delay}
-              />
-            ))}
-          </div>
-
-          <div className="mt-16 p-8 bg-brand-navy/95 rounded-xl text-center text-white glass-effect relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center opacity-10"></div>
-            <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-6">Achieve Similar Results For Your Business</h3>
-              <CTAButton 
-                text="GET YOUR LEADS NOW" 
-                onClick={handleBuyNow} 
-                className="bg-brand-orange border-brand-orange hover:bg-white hover:text-brand-orange"
-                icon={<ArrowRight className="w-5 h-5" />}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section id="pricing" className="py-24 px-4 md:px-6">
-        <div className="container max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm">
-              LIMITED OFFER
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
-              Exclusive Introductory Pricing
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Our databases typically sell for ₹2,400, but for a limited time we're offering special introductory pricing:
-            </p>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-lg border border-brand-gray overflow-hidden max-w-3xl mx-auto">
-            <div className="bg-gradient-to-r from-brand-navy to-brand-blue text-white p-6 text-center">
-              <h3 className="text-2xl font-bold">Premium Startup Email Database</h3>
-              <p className="text-lg opacity-90">1,000 Verified Decision-Maker Contacts</p>
-            </div>
-
-            <div className="p-8">
-              <div className="flex items-center justify-center mb-6">
-                <div className="text-gray-500 line-through text-2xl">₹2,400</div>
-                <div className="ml-4 bg-brand-orange/10 text-brand-orange px-3 py-1 rounded font-bold">
-                  50% OFF
-                </div>
-              </div>
-
-              <div className="text-center mb-8">
-                <div className="text-5xl font-bold text-brand-navy">₹1,200</div>
-                <p className="text-gray-500 mt-2">One-time payment, no subscription</p>
-              </div>
-
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                  <span>1,000+ verified startup email contacts</span>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                  <span>All startups registered in the last 90 days</span>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                  <span>Direct founder and decision-maker contacts</span>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                  <span>Excel/CSV format with detailed company info</span>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-brand-blue shrink-0 mr-2 mt-0.5" />
-                  <span>Instant delivery to your email</span>
-                </div>
-              </div>
-
-              <div className="text-center">
-                <CTAButton 
-                  text="BUY NOW - LIMITED AVAILABILITY" 
-                  onClick={handleBuyNow} 
-                  className="w-full"
-                  icon={<ArrowRight className="w-5 h-5" />}
-                />
-                <p className="text-red-500 font-medium mt-4">Only 50 copies available at this price</p>
-                <p className="text-gray-500 text-sm mt-2">Price increases by ₹200 every 24 hours</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bonuses Section */}
-      <section className="py-24 px-4 md:px-6 bg-brand-gray/30">
-        <div className="container max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="mb-2 inline-block bg-brand-orange/15 text-brand-orange font-semibold px-4 py-1 rounded-full text-sm">
-              FREE EXTRAS
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
-              Exclusive Bonuses Included
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Order today and receive these valuable bonuses completely free:
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {bonuses.map((bonus, index) => (
-              <BonusCard
-                key={index}
-                number={bonus.number}
-                title={bonus.title}
-                description={bonus.description}
-                value={bonus.value}
-                delay={bonus.delay}
-              />
-            ))}
-          </div>
-
-          <div className="bg-white p-6 rounded-xl border border-brand-orange shadow-md">
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="md:w-3/4 mb-6 md:mb-0 md:pr-6">
-                <h4 className="text-xl font-bold text-brand-navy mb-2">
-                  First 20 Buyers Special Bonus
-                </h4>
-                <p className="text-gray-600">
-                  Act now and receive an additional 200 premium leads from fast-growing startups with recent funding (₹1,200 value) absolutely FREE!
-                </p>
-              </div>
-              <div className="md:w-1/4 flex justify-center">
-                <CTAButton 
-                  text="CLAIM THIS OFFER" 
-                  onClick={handleBuyNow} 
-                  className="whitespace-nowrap"
-                  icon={<ArrowRight className="w-5 h-5" />}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section id="faq" className="py-24 px-4 md:px-6">
-        <div className="container max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm">
-              QUESTIONS
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Everything you need to know before making your purchase:
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            {faqs.map((faq, index) => (
-              <FAQItem
-                key={index}
-                question={faq.question}
-                answer={faq.answer}
-                isOpen={index === 0}
-              />
-            ))}
-          </div>
-
-          <div className="mt-16 text-center">
-            <p className="text-gray-600 mb-6">Still have questions?</p>
-            <a 
-              href="mailto:support@example.com"
-              className="text-brand-blue font-medium hover:text-brand-navy transition-colors"
-            >
-              Contact our support team
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-16 px-4 md:px-6 bg-brand-navy text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center opacity-10"></div>
-        <div className="container max-w-7xl mx-auto text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Lead Generation?
-          </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
-            Stop wasting time on low-quality leads. Connect with responsive Indian startup founders actively seeking your solutions.
-          </p>
-          
-          <div className="max-w-md mx-auto">
-            <CTAButton 
-              text="GET 1,000 STARTUP EMAILS NOW" 
-              onClick={handleBuyNow} 
-              className="w-full mb-4 bg-brand-orange border-brand-orange hover:bg-white hover:text-brand-orange"
-              icon={<ArrowRight className="w-5 h-5" />}
-            />
-            <p className="text-white/80 text-sm">
-              Secure payment • Instant delivery • 7-day satisfaction guarantee
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-8 px-4 md:px-6 bg-gray-900 text-white/70">
-        <div className="container max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <h4 className="font-bold text-white mb-4">Contact Us</h4>
-              <p className="mb-2">Email: support@example.com</p>
-              <p>WhatsApp: +91 98765 43210</p>
-            </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Payment Methods</h4>
-              <p>All major credit cards accepted</p>
-              <p>UPI and Net Banking available</p>
-            </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Refund Policy
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="pt-8 border-t border-white/10 text-center text-white/50 text-sm">
-            <p>© 2023 Fresh Indian Startup Database. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-};
-
-export default Index;
+              <div className="p-6">
+                <div className="space-y-4">
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Investment</span>
+                    <span className="font-bold">₹1,200</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Clients Converted</span>
+                    <span className="font-bold">2 clients</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Revenue per Client</span>
+                    <span className="font-bold">₹20,000</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Total Revenue</span>
+                    <span className="font-bold">₹40,000</span>
+                  </div>
+                  <div className="flex justify-between pt-2">
+                    <span className="font-bold text-brand-blue">ROI</span>
+                    <span className="font-bold text-brand-
