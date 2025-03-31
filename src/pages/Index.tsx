@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import CountdownTimer from "../components/CountdownTimer";
 import BenefitCard from "../components/BenefitCard";
@@ -582,4 +583,169 @@ const Index = () => {
                   </div>
                   <div className="flex justify-between pt-2">
                     <span className="font-bold text-brand-blue">ROI</span>
-                    <span className="font-bold text-brand-
+                    <span className="font-bold text-brand-blue">3,233%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Moderate Scenario */}
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div className="bg-gradient-to-r from-brand-orange/90 to-brand-orange/70 text-white p-4">
+                <h3 className="text-xl font-bold text-center">Moderate Scenario</h3>
+              </div>
+              <div className="p-6">
+                <div className="space-y-4">
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Investment</span>
+                    <span className="font-bold">₹1,200</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Clients Converted</span>
+                    <span className="font-bold">5 clients</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Revenue per Client</span>
+                    <span className="font-bold">₹30,000</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Total Revenue</span>
+                    <span className="font-bold">₹1,50,000</span>
+                  </div>
+                  <div className="flex justify-between pt-2">
+                    <span className="font-bold text-brand-orange">ROI</span>
+                    <span className="font-bold text-brand-orange">12,400%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Optimistic Scenario */}
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div className="bg-gradient-to-r from-green-500/90 to-green-500/70 text-white p-4">
+                <h3 className="text-xl font-bold text-center">Optimistic Scenario</h3>
+              </div>
+              <div className="p-6">
+                <div className="space-y-4">
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Investment</span>
+                    <span className="font-bold">₹1,200</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Clients Converted</span>
+                    <span className="font-bold">10 clients</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Revenue per Client</span>
+                    <span className="font-bold">₹50,000</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2">
+                    <span className="font-medium">Total Revenue</span>
+                    <span className="font-bold">₹5,00,000</span>
+                  </div>
+                  <div className="flex justify-between pt-2">
+                    <span className="font-bold text-green-500">ROI</span>
+                    <span className="font-bold text-green-500">41,567%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 p-8 rounded-xl border border-gray-200 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-brand-navy mb-6 text-center">Who Can Benefit From This Database?</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {audiences.map((audience, index) => (
+                <AudienceCard
+                  key={index}
+                  icon={audience.icon}
+                  title={audience.title}
+                  description={audience.description}
+                  roi={audience.roi}
+                  valueProposition={audience.valueProposition}
+                  delay={audience.delay}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 px-4 md:px-6 bg-brand-light">
+        <div className="container max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm">
+              QUESTIONS ANSWERED
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <div className="bg-white p-8 rounded-xl shadow-md">
+            {faqs.map((faq, index) => (
+              <FAQItem 
+                key={index} 
+                question={faq.question} 
+                answer={faq.answer}
+                isOpen={index === 0}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-16 px-4 md:px-6 bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white">
+        <div className="container max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Connect with Fresh Indian Startups?
+          </h2>
+          <p className="text-xl text-white/80 mb-10 max-w-3xl mx-auto">
+            Get instant access to 1,000 verified startup email addresses and start growing your business today.
+          </p>
+          
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            <div className="md:w-1/3 bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+              <div className="text-3xl font-bold mb-1">₹1,200</div>
+              <div className="text-xl line-through opacity-60 mb-2">₹2,400</div>
+              <div className="text-white/80 mb-4">1,000 verified startup emails</div>
+              <CTAButton 
+                text="BUY NOW" 
+                onClick={handleBuyNow}
+                isPrimary={false}
+                className="bg-white text-brand-navy hover:bg-white/90 w-full"
+              />
+            </div>
+            
+            <div className="bg-gradient-to-br from-white/5 to-white/0 p-8 rounded-xl border border-white/10 max-w-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <CheckCircle className="h-5 w-5 text-green-400 shrink-0" />
+                <p className="text-left text-white/90">Fresh data updated weekly</p>
+              </div>
+              <div className="flex items-center gap-3 mb-4">
+                <CheckCircle className="h-5 w-5 text-green-400 shrink-0" />
+                <p className="text-left text-white/90">High accuracy (95%+ deliverability)</p>
+              </div>
+              <div className="flex items-center gap-3 mb-4">
+                <CheckCircle className="h-5 w-5 text-green-400 shrink-0" />
+                <p className="text-left text-white/90">Direct founder/decision-maker contacts</p>
+              </div>
+              <div className="flex items-center gap-3 mb-4">
+                <CheckCircle className="h-5 w-5 text-green-400 shrink-0" />
+                <p className="text-left text-white/90">Immediate delivery after purchase</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <CheckCircle className="h-5 w-5 text-green-400 shrink-0" />
+                <p className="text-left text-white/90">7-day satisfaction guarantee</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Index;
