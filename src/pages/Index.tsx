@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import CountdownTimer from "../components/CountdownTimer";
 import BenefitCard from "../components/BenefitCard";
@@ -6,6 +5,7 @@ import FAQItem from "../components/FAQItem";
 import AudienceCard from "../components/AudienceCard";
 import CTAButton from "../components/CTAButton";
 import ROICalculator from "../components/ROICalculator";
+import TestimonialCard from "../components/TestimonialCard";
 import { useToast } from "@/components/ui/use-toast";
 import { 
   CheckCircle, Clock, Mail, Users, TrendingUp, BadgeDollarSign, 
@@ -251,7 +251,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Proof WhatsApp Section - Enhanced */}
+      {/* Social Proof WhatsApp Section - Enhanced with Real Images */}
       <section className="py-16 px-4 md:px-6 bg-gradient-to-r from-brand-light to-white">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -266,174 +266,33 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Enhanced WhatsApp Cards - Increased Size */}
+          {/* Real WhatsApp Testimonial Images */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-lg border border-gray-200 max-w-sm mx-auto hover:shadow-xl transition-all duration-300">
-              <div className="bg-[#128C7E] text-white p-3 rounded-t-lg flex items-center">
-                <div className="w-12 h-12 bg-white rounded-full overflow-hidden mr-3 flex items-center justify-center text-sm font-bold text-[#128C7E]">
-                  RA
-                </div>
-                <div>
-                  <p className="font-medium">Raj** M******</p>
-                  <p className="text-xs opacity-80">Online</p>
-                </div>
-              </div>
-              <div className="py-4 px-3 bg-[#E5DDD5] h-96 overflow-y-auto rounded-b-lg">
-                <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
-                    Hi
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:42 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
-                    Hello
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:43 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
-                    Did any leads work for you?
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:45 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
-                    Bro, this list actually works! Sent emails yesterday, got 2 replies already
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:47 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
-                    Both are founders. This was worth it.
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:48 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
-                    That's Great! Keep sending more emails to leads.
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">12:50 PM</span>
-                  </span>
-                </div>
-              </div>
+            {/* First Testimonial */}
+            <div className="bg-[#F6F6F6] rounded-xl shadow-lg border border-gray-200 mx-auto hover:shadow-xl transition-all duration-300">
+              <img 
+                src="/lovable-uploads/9979c473-e3bb-4043-85f8-e6a8f1efa706.png" 
+                alt="WhatsApp conversation with Rajesh Malhotra" 
+                className="w-full h-auto rounded-xl"
+              />
             </div>
             
-            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-lg border border-gray-200 max-w-sm mx-auto hover:shadow-xl transition-all duration-300">
-              <div className="bg-[#128C7E] text-white p-3 rounded-t-lg flex items-center">
-                <div className="w-12 h-12 bg-white rounded-full overflow-hidden mr-3 flex items-center justify-center text-sm font-bold text-[#128C7E]">
-                  +91
-                </div>
-                <div>
-                  <p className="font-medium">+91 983** ***32</p>
-                  <p className="text-xs opacity-80">Online</p>
-                </div>
-              </div>
-              <div className="py-4 px-3 bg-[#E5DDD5] h-96 overflow-y-auto rounded-b-lg">
-                <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
-                    Hello Sir
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">10:15 AM</span>
-                  </span>
-                </div>
-                <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
-                    Hi, Did you get your email list?
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">10:17 AM</span>
-                  </span>
-                </div>
-                <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
-                    Yes, I got the email list instantly after Payment. Are these really verified?
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">10:20 AM</span>
-                  </span>
-                </div>
-                <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
-                    Yep, all fresh and verified
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">10:21 AM</span>
-                  </span>
-                </div>
-                <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
-                    Thankyou
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">10:22 AM</span>
-                  </span>
-                </div>
-              </div>
+            {/* Second Testimonial */}
+            <div className="bg-[#F6F6F6] rounded-xl shadow-lg border border-gray-200 mx-auto hover:shadow-xl transition-all duration-300">
+              <img 
+                src="/lovable-uploads/f8c829ac-760a-4e1c-999e-4c3aab04650e.png" 
+                alt="WhatsApp conversation with customer" 
+                className="w-full h-auto rounded-xl"
+              />
             </div>
             
-            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-lg border border-gray-200 max-w-sm mx-auto hover:shadow-xl transition-all duration-300">
-              <div className="bg-[#128C7E] text-white p-3 rounded-t-lg flex items-center">
-                <div className="w-12 h-12 bg-white rounded-full overflow-hidden mr-3 flex items-center justify-center text-sm font-bold text-[#128C7E]">
-                  +91
-                </div>
-                <div>
-                  <p className="font-medium">+91 974** ***22</p>
-                  <p className="text-xs opacity-80">Online</p>
-                </div>
-              </div>
-              <div className="py-4 px-3 bg-[#E5DDD5] h-96 overflow-y-auto rounded-b-lg">
-                <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
-                    Hi
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:22 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
-                    Hello
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:23 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
-                    Ji, ye leads freelancers ke liye bhi useful hai kya?
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:25 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
-                    Aapki niche kya hai?
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:26 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
-                    Website Development and Logo Design
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:28 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
-                    Sir, startup founders ko website and logo chahiye hote hai. Aapke liye toh perfect hai.
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:30 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
-                    ok, send me the link.
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:31 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
-                    www.netreads.in/fresh_business_leads
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:32 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4">
-                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%] relative">
-                    Payment Done. Leads email pe milengi?
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:40 PM</span>
-                  </span>
-                </div>
-                <div className="mb-4 text-right">
-                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left relative">
-                    Ji sir
-                    <span className="text-[10px] text-gray-500 block text-right mt-1">3:41 PM</span>
-                  </span>
-                </div>
-              </div>
+            {/* Third Testimonial */}
+            <div className="bg-[#F6F6F6] rounded-xl shadow-lg border border-gray-200 mx-auto hover:shadow-xl transition-all duration-300">
+              <img 
+                src="/lovable-uploads/f4fc9ac8-f698-487e-975b-29a826a6fd31.png" 
+                alt="WhatsApp conversation in Hindi" 
+                className="w-full h-auto rounded-xl"
+              />
             </div>
           </div>
         </div>
