@@ -19,13 +19,13 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`px-8 py-4 rounded-lg font-bold transition-all transform duration-300 text-lg flex items-center justify-center gap-2 ${
+      className={`px-8 py-4 rounded-lg font-bold transition-all transform duration-300 text-lg flex items-center justify-center gap-2 shadow-md hover:shadow-xl ${
         isPrimary 
-          ? "bg-brand-orange text-white hover:shadow-lg hover:translate-y-[-2px]" 
+          ? "bg-brand-orange text-white hover:scale-105" 
           : "bg-white text-brand-navy border-2 border-brand-navy hover:bg-brand-navy hover:text-white"
       } ${className}`}
     >
-      {icon && <span className="mr-1">{icon}</span>}
+      {icon && <span>{icon}</span>}
       {text}
     </button>
   );

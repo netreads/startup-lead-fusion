@@ -19,31 +19,31 @@ const ROICalculator: React.FC = () => {
     {
       title: "Conservative Scenario",
       icon: <Calculator className="h-6 w-6" />,
-      investment: "₹3,000",
+      investment: "₹1,200",
       clientsConverted: "2 clients",
       revenuePerClient: "₹20,000",
       totalRevenue: "₹40,000",
-      roi: "1,233%",
+      roi: "3,233%",
       bgColor: "bg-white"
     },
     {
       title: "Moderate Scenario",
       icon: <TrendingUp className="h-6 w-6" />,
-      investment: "₹3,000",
+      investment: "₹1,200",
       clientsConverted: "5 clients",
       revenuePerClient: "₹30,000",
       totalRevenue: "₹1,50,000",
-      roi: "4,900%",
+      roi: "12,400%",
       bgColor: "bg-brand-blue/5"
     },
     {
       title: "Optimistic Scenario",
       icon: <BadgeDollarSign className="h-6 w-6" />,
-      investment: "₹3,000",
+      investment: "₹1,200",
       clientsConverted: "10 clients",
       revenuePerClient: "₹50,000",
       totalRevenue: "₹5,00,000",
-      roi: "16,567%",
+      roi: "41,567%",
       bgColor: "bg-brand-orange/5"
     }
   ];
@@ -51,7 +51,7 @@ const ROICalculator: React.FC = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {scenarios.map((scenario, index) => (
-        <Card key={index} className={`border border-brand-gray ${scenario.bgColor} hover:shadow-md transition-all duration-300`}>
+        <Card key={index} className={`border border-brand-gray ${scenario.bgColor} hover:shadow-lg transition-all duration-300`}>
           <CardHeader className="pb-2">
             <div className="flex items-center gap-2">
               <div className={`p-2 rounded-full ${index === 0 ? 'bg-brand-navy/10' : index === 1 ? 'bg-brand-blue/10' : 'bg-brand-orange/10'}`}>

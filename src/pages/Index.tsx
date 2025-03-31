@@ -12,7 +12,8 @@ import {
   CheckCircle, Clock, Mail, Users, TrendingUp, BadgeDollarSign, 
   BarChart, Shield, Target, Zap, CheckCheck, Database,
   UserCheck, Building, Briefcase, Lightbulb, Calculator,
-  DollarSign, Headphones, ArrowRight
+  DollarSign, Headphones, ArrowRight, MessageSquare,
+  Award, Star, ThumbsUp, Sparkles, Gift
 } from "lucide-react";
 
 const Index = () => {
@@ -188,18 +189,18 @@ const Index = () => {
         <div className="container max-w-7xl mx-auto z-10">
           <div className="flex flex-col md:flex-row items-center mb-12">
             <div className="md:w-3/5 text-left mb-8 md:mb-0 md:pr-12">
-              <div className="mb-4 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm animate-in animate-delay-100">
+              <div className="mb-4 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm animate-fade-in">
                 EXCLUSIVE LIMITED-TIME OFFER
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-4 leading-tight animate-in animate-delay-100">
-                1,000 Freshly Registered <br className="hidden md:block" />
-                Startup Emails for <span className="text-brand-orange">ONLY ₹3,000</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-4 leading-tight animate-fade-in">
+                1,000 Fresh Indian Startup Emails <br className="hidden md:block" />
+                for <span className="text-brand-orange">JUST ₹1,200</span>
               </h1>
-              <h2 className="text-xl md:text-2xl text-gray-600 max-w-3xl animate-in animate-delay-200">
-                Connect directly with decision-makers who <span className="font-semibold">NEED</span> your services now | 100% verified contacts | Instant delivery
+              <h2 className="text-xl md:text-2xl text-gray-600 max-w-3xl animate-fade-in">
+                Connect with new Indian businesses & founders who <span className="font-semibold">NEED</span> your services right now | 100% verified | Instant delivery
               </h2>
               
-              <div className="flex flex-wrap items-center mt-8 gap-3 animate-in animate-delay-300">
+              <div className="flex flex-wrap items-center mt-8 gap-3 animate-fade-in">
                 <div className="flex items-center text-sm text-brand-navy bg-white py-1 px-3 rounded-full shadow-sm">
                   <CheckCircle className="h-4 w-4 text-brand-blue mr-1" />
                   <span>100% Verified</span>
@@ -212,16 +213,20 @@ const Index = () => {
                   <DollarSign className="h-4 w-4 text-brand-blue mr-1" />
                   <span>Money-back Guarantee</span>
                 </div>
+                <div className="flex items-center text-sm text-brand-navy bg-white py-1 px-3 rounded-full shadow-sm">
+                  <MessageSquare className="h-4 w-4 text-brand-blue mr-1" />
+                  <span>WhatsApp Proof</span>
+                </div>
               </div>
             </div>
             
-            <div className="md:w-2/5 bg-white p-8 rounded-xl shadow-lg border border-brand-gray animate-in animate-delay-300">
+            <div className="md:w-2/5 bg-white p-8 rounded-xl shadow-lg border border-brand-gray animate-fade-in">
               <div className="text-center mb-4">
                 <h3 className="text-2xl font-bold text-brand-navy">Limited Time Offer</h3>
                 <div className="flex items-center justify-center gap-2 text-brand-orange font-semibold mt-2">
-                  <span className="text-3xl line-through opacity-70">₹6,000</span>
+                  <span className="text-3xl line-through opacity-70">₹2,400</span>
                   <span className="bg-brand-orange/10 p-1 rounded text-sm">50% OFF</span>
-                  <span className="text-3xl">₹3,000</span>
+                  <span className="text-3xl">₹1,200</span>
                 </div>
               </div>
               
@@ -245,7 +250,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto animate-in animate-delay-500">
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto animate-fade-in">
             <div className="flex flex-col items-center">
               <div className="rounded-full bg-brand-navy/10 p-2 mb-2">
                 <Shield className="h-5 w-5 text-brand-navy" />
@@ -273,10 +278,178 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="mt-16 py-8 w-full bg-brand-navy text-center z-10 animate-in animate-delay-600">
+        <div className="mt-16 py-8 w-full bg-brand-navy text-center z-10 animate-fade-in">
           <p className="text-xl md:text-2xl font-bold text-white max-w-5xl mx-auto px-4">
-            "Stop chasing cold leads. Start connecting with founders actively seeking YOUR solutions."
+            "Stop chasing cold leads. Start connecting with Indian founders actively seeking YOUR solutions."
           </p>
+        </div>
+      </section>
+
+      {/* Social Proof WhatsApp Section */}
+      <section className="py-16 px-4 md:px-6 bg-gradient-to-r from-brand-light to-white">
+        <div className="container max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="mb-2 inline-block bg-[#25D366]/10 text-[#25D366] font-semibold px-4 py-1 rounded-full text-sm">
+              REAL RESULTS
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
+              See What Our Customers Are Saying
+            </h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Real WhatsApp conversations from customers who purchased our startup email database:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-md border border-gray-200 max-w-xs mx-auto">
+              <div className="bg-[#128C7E] text-white p-2 rounded-t-lg flex items-center">
+                <div className="w-10 h-10 bg-white rounded-full overflow-hidden mr-3"></div>
+                <div>
+                  <p className="font-medium">Rajesh Malhotra</p>
+                  <p className="text-xs opacity-80">Online</p>
+                </div>
+              </div>
+              <div className="py-3 px-2 bg-[#E5DDD5] h-80 overflow-y-auto rounded-b-lg">
+                <div className="mb-4 text-right">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                    Hi
+                  </span>
+                </div>
+                <div className="mb-4">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                    Hello
+                  </span>
+                </div>
+                <div className="mb-4 text-right">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                    Did any leads work for you?
+                  </span>
+                </div>
+                <div className="mb-4">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                    Bro, this list actually works! Sent emails yesterday, got 2 replies already
+                  </span>
+                </div>
+                <div className="mb-4">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                    Both are founders. This was worth it.
+                  </span>
+                </div>
+                <div className="mb-4 text-right">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                    That's Great! Keep sending more emails to leads.
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-md border border-gray-200 max-w-xs mx-auto">
+              <div className="bg-[#128C7E] text-white p-2 rounded-t-lg flex items-center">
+                <div className="w-10 h-10 bg-white rounded-full overflow-hidden mr-3"></div>
+                <div>
+                  <p className="font-medium">+91 98362 53332</p>
+                  <p className="text-xs opacity-80">Online</p>
+                </div>
+              </div>
+              <div className="py-3 px-2 bg-[#E5DDD5] h-80 overflow-y-auto rounded-b-lg">
+                <div className="mb-4">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                    Hello Sir
+                  </span>
+                </div>
+                <div className="mb-4 text-right">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                    Hi, Did you get your email list?
+                  </span>
+                </div>
+                <div className="mb-4">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                    Yes, I got the email list instantly after Payment. Are these really verified?
+                  </span>
+                </div>
+                <div className="mb-4 text-right">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                    Yep, all fresh and verified
+                  </span>
+                </div>
+                <div className="mb-4">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                    Thankyou
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-[#F6F6F6] rounded-xl p-4 shadow-md border border-gray-200 max-w-xs mx-auto">
+              <div className="bg-[#128C7E] text-white p-2 rounded-t-lg flex items-center">
+                <div className="w-10 h-10 bg-white rounded-full overflow-hidden mr-3"></div>
+                <div>
+                  <p className="font-medium">+91 97423 70822</p>
+                  <p className="text-xs opacity-80">Online</p>
+                </div>
+              </div>
+              <div className="py-3 px-2 bg-[#E5DDD5] h-80 overflow-y-auto rounded-b-lg">
+                <div className="mb-4">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                    Hi
+                  </span>
+                </div>
+                <div className="mb-4 text-right">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                    Hello
+                  </span>
+                </div>
+                <div className="mb-4">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                    Ji, ye leads freelancers ke liye bhi useful hai kya?
+                  </span>
+                </div>
+                <div className="mb-4 text-right">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                    Aapki niche kya hai?
+                  </span>
+                </div>
+                <div className="mb-4">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                    Website Development and Logo Design
+                  </span>
+                </div>
+                <div className="mb-4 text-right">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                    Sir, startup founders ko website and logo chahiye hote hai. Aapke liye toh perfect hai.
+                  </span>
+                </div>
+                <div className="mb-4">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                    ok, send me the link.
+                  </span>
+                </div>
+                <div className="mb-4 text-right">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                    www.netreads.in/fresh_business_leads
+                  </span>
+                </div>
+                <div className="mb-4">
+                  <span className="inline-block bg-white rounded-lg py-2 px-3 text-sm max-w-[80%]">
+                    Payment Done. Leads email pe milengi?
+                  </span>
+                </div>
+                <div className="mb-4 text-right">
+                  <span className="inline-block bg-[#DCF8C6] rounded-lg py-2 px-3 text-sm max-w-[80%] text-left">
+                    Ji sir
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <CTAButton 
+              text="GET YOUR STARTUP LEADS NOW" 
+              onClick={handleBuyNow}
+              icon={<ArrowRight className="w-5 h-5" />}
+            />
+          </div>
         </div>
       </section>
 
@@ -295,7 +468,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-in">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
               <BenefitCard
                 key={index}
@@ -317,8 +490,74 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Trust Elements Section */}
+      <section className="py-16 px-4 md:px-6 bg-brand-navy/5">
+        <div className="container max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="mb-2 inline-block bg-brand-orange/15 text-brand-orange font-semibold px-4 py-1 rounded-full text-sm">
+              WHY TRUST US
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
+              Our Database Quality Guarantees
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-md border border-brand-gray/50 flex flex-col items-center text-center">
+              <div className="rounded-full bg-brand-blue/10 p-4 mb-4">
+                <Award className="h-8 w-8 text-brand-blue" />
+              </div>
+              <h3 className="text-xl font-bold text-brand-navy mb-2">Quality Guaranteed</h3>
+              <p className="text-gray-600">Every email is manually verified to ensure highest deliverability rates.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-md border border-brand-gray/50 flex flex-col items-center text-center">
+              <div className="rounded-full bg-brand-blue/10 p-4 mb-4">
+                <Star className="h-8 w-8 text-brand-blue" />
+              </div>
+              <h3 className="text-xl font-bold text-brand-navy mb-2">Premium Support</h3>
+              <p className="text-gray-600">Dedicated WhatsApp support to help maximize your campaign success.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-md border border-brand-gray/50 flex flex-col items-center text-center">
+              <div className="rounded-full bg-brand-blue/10 p-4 mb-4">
+                <ThumbsUp className="h-8 w-8 text-brand-blue" />
+              </div>
+              <h3 className="text-xl font-bold text-brand-navy mb-2">95%+ Accuracy</h3>
+              <p className="text-gray-600">Our data accuracy exceeds industry standards with bounce rates under 5%.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-md border border-brand-gray/50 flex flex-col items-center text-center">
+              <div className="rounded-full bg-brand-blue/10 p-4 mb-4">
+                <Sparkles className="h-8 w-8 text-brand-blue" />
+              </div>
+              <h3 className="text-xl font-bold text-brand-navy mb-2">Premium Targeting</h3>
+              <p className="text-gray-600">Contacts are categorized by industry and location for precise targeting.</p>
+            </div>
+          </div>
+
+          <div className="mt-12 p-8 bg-white rounded-xl shadow-md border border-brand-gray flex flex-col md:flex-row items-center justify-between">
+            <div className="flex items-start mb-6 md:mb-0 md:mr-8">
+              <div className="rounded-full bg-green-100 p-2 mr-4">
+                <CheckCircle className="h-8 w-8 text-green-600" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-brand-navy mb-2">Our 7-Day Satisfaction Guarantee</h3>
+                <p className="text-gray-600">If our data doesn't meet your expectations, we'll provide a full refund. No questions asked.</p>
+              </div>
+            </div>
+            <CTAButton 
+              text="CLAIM YOUR DATABASE" 
+              onClick={handleBuyNow}
+              className="md:whitespace-nowrap"
+              icon={<Gift className="w-5 h-5" />}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* ROI Calculator Section */}
-      <section className="py-24 px-4 md:px-6 bg-brand-navy/5">
+      <section className="py-24 px-4 md:px-6 bg-white">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="mb-2 inline-block bg-brand-orange/15 text-brand-orange font-semibold px-4 py-1 rounded-full text-sm">
@@ -334,7 +573,7 @@ const Index = () => {
 
           <ROICalculator />
 
-          <div className="mt-12 p-6 bg-white rounded-xl border border-brand-gray/80 shadow-sm max-w-3xl mx-auto">
+          <div className="mt-12 p-6 bg-white rounded-xl border border-brand-gray/80 shadow-md max-w-3xl mx-auto">
             <div className="flex items-start">
               <div className="p-2 rounded-full bg-brand-orange/10 mr-4 mt-1">
                 <Lightbulb className="h-5 w-5 text-brand-orange" />
@@ -343,7 +582,7 @@ const Index = () => {
                 <h3 className="text-lg font-semibold text-brand-navy mb-2">How We Calculate ROI</h3>
                 <p className="text-gray-600">
                   ROI = (Net Profit / Cost of Investment) × 100. For example, in the Conservative Scenario, 
-                  the net profit is ₹40,000 - ₹3,000 = ₹37,000. The ROI is then (₹37,000 / ₹3,000) × 100 = 1,233%.
+                  the net profit is ₹40,000 - ₹1,200 = ₹38,800. The ROI is then (₹38,800 / ₹1,200) × 100 = 3,233%.
                 </p>
               </div>
             </div>
@@ -352,7 +591,7 @@ const Index = () => {
       </section>
 
       {/* Who Can Benefit Section */}
-      <section id="audience" className="py-24 px-4 md:px-6 bg-white">
+      <section id="audience" className="py-24 px-4 md:px-6 bg-brand-light">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="mb-2 inline-block bg-brand-blue/10 text-brand-blue font-semibold px-4 py-1 rounded-full text-sm">
@@ -366,7 +605,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-in">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {audiences.map((audience, index) => (
               <AudienceCard
                 key={index}
@@ -380,7 +619,7 @@ const Index = () => {
             ))}
           </div>
           
-          <div className="mt-16 p-6 bg-brand-navy/5 rounded-xl border border-brand-gray">
+          <div className="mt-16 p-6 bg-white rounded-xl border border-brand-gray shadow-md">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
                 <h3 className="text-xl font-bold text-brand-navy mb-3">Transform Your Client Acquisition Strategy</h3>
@@ -416,7 +655,7 @@ const Index = () => {
 
           <div className="bg-white rounded-xl shadow-lg border border-brand-gray p-8 mb-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="animate-in animate-delay-100">
+              <div>
                 <h3 className="text-xl font-bold text-brand-navy mb-4 flex items-center">
                   <Mail className="mr-2 text-brand-blue" /> Email Database Contents
                 </h3>
@@ -440,7 +679,7 @@ const Index = () => {
                 </ul>
               </div>
               
-              <div className="animate-in animate-delay-200">
+              <div>
                 <h3 className="text-xl font-bold text-brand-navy mb-4 flex items-center">
                   <BarChart className="mr-2 text-brand-blue" /> Key Advantages
                 </h3>
@@ -491,7 +730,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-in">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard
                 key={index}
@@ -530,11 +769,11 @@ const Index = () => {
               Exclusive Introductory Pricing
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Our databases typically sell for ₹6,000, but for a limited time we're offering special introductory pricing:
+              Our databases typically sell for ₹2,400, but for a limited time we're offering special introductory pricing:
             </p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-brand-gray overflow-hidden max-w-3xl mx-auto animate-in">
+          <div className="bg-white rounded-xl shadow-lg border border-brand-gray overflow-hidden max-w-3xl mx-auto">
             <div className="bg-gradient-to-r from-brand-navy to-brand-blue text-white p-6 text-center">
               <h3 className="text-2xl font-bold">Premium Startup Email Database</h3>
               <p className="text-lg opacity-90">1,000 Verified Decision-Maker Contacts</p>
@@ -542,14 +781,14 @@ const Index = () => {
 
             <div className="p-8">
               <div className="flex items-center justify-center mb-6">
-                <div className="text-gray-500 line-through text-2xl">₹6,000</div>
+                <div className="text-gray-500 line-through text-2xl">₹2,400</div>
                 <div className="ml-4 bg-brand-orange/10 text-brand-orange px-3 py-1 rounded font-bold">
                   50% OFF
                 </div>
               </div>
 
               <div className="text-center mb-8">
-                <div className="text-5xl font-bold text-brand-navy">₹3,000</div>
+                <div className="text-5xl font-bold text-brand-navy">₹1,200</div>
                 <p className="text-gray-500 mt-2">One-time payment, no subscription</p>
               </div>
 
@@ -584,7 +823,7 @@ const Index = () => {
                   icon={<ArrowRight className="w-5 h-5" />}
                 />
                 <p className="text-red-500 font-medium mt-4">Only 50 copies available at this price</p>
-                <p className="text-gray-500 text-sm mt-2">Price increases by ₹500 every 24 hours</p>
+                <p className="text-gray-500 text-sm mt-2">Price increases by ₹200 every 24 hours</p>
               </div>
             </div>
           </div>
@@ -619,7 +858,7 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="bg-white p-6 rounded-xl border border-brand-orange animate-in">
+          <div className="bg-white p-6 rounded-xl border border-brand-orange shadow-md">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-3/4 mb-6 md:mb-0 md:pr-6">
                 <h4 className="text-xl font-bold text-brand-navy mb-2">
@@ -657,7 +896,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto animate-in">
+          <div className="max-w-3xl mx-auto">
             {faqs.map((faq, index) => (
               <FAQItem
                 key={index}
@@ -688,7 +927,7 @@ const Index = () => {
             Ready to Transform Your Lead Generation?
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
-            Stop wasting time on low-quality leads. Connect with responsive startup founders actively seeking your solutions.
+            Stop wasting time on low-quality leads. Connect with responsive Indian startup founders actively seeking your solutions.
           </p>
           
           <div className="max-w-md mx-auto">
@@ -712,7 +951,7 @@ const Index = () => {
             <div>
               <h4 className="font-bold text-white mb-4">Contact Us</h4>
               <p className="mb-2">Email: support@example.com</p>
-              <p>Phone: +91 98765 43210</p>
+              <p>WhatsApp: +91 98765 43210</p>
             </div>
             <div>
               <h4 className="font-bold text-white mb-4">Payment Methods</h4>
@@ -742,7 +981,7 @@ const Index = () => {
           </div>
 
           <div className="pt-8 border-t border-white/10 text-center text-white/50 text-sm">
-            <p>© 2023 Premium Startup Database. All rights reserved.</p>
+            <p>© 2023 Fresh Indian Startup Database. All rights reserved.</p>
           </div>
         </div>
       </footer>
